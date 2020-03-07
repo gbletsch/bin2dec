@@ -45,18 +45,29 @@ export default class Bin2Dec extends Component {
   render () {
     return (
       <div>
-        <h2>Binary</h2>
-        <input
-          type='text'
-          value={this.state.binary}
-          placeholder='insert binary number'
-          onChange={e => this.onChange(e)}
-        />
-        <button type='button' onClick={() => this.handleClearBin()}>
+        <form>
+          <fieldset>
+            <legend>
+                  Binary
+            </legend>
+            <input
+              type='text'
+              value={this.state.binary}
+              placeholder='insert binary number'
+              onChange={e => this.onChange(e)}
+            />
+            <button type='button' onClick={() => this.handleClearBin()}>
             Clear
-        </button>
-        <h2>Decimal</h2>
-        <h3>{this.showDecimal()}</h3>
+            </button>
+          </fieldset>
+          <fieldset>
+            <legend>
+                      Decimal
+            </legend>
+            <p>{this.showDecimal()}</p>
+
+          </fieldset>
+        </form>
       </div>
     )
   }
