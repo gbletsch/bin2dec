@@ -17,10 +17,18 @@ export default class Bin2Dec extends Component {
 
   onChange (e) {
     const data = e.nativeEvent.data
+    const inputType = e.nativeEvent.inputType
+    console.log(inputType)
+    if (inputType === 'deleteContentBackward') { // não consegui fazer com o <Delete>
+      this.changeState('binary', this.state.binary.slice(0, -1))
+      return
+    }
     if (data === '1' || data === '0') {
       const value = this.state.binary + data
       this.changeState('binary', value)
+      return
     }
+    alert('Must enter only 1 or 0.')
   }
 
   baseConvert (number, initialBase, changeBase) {
